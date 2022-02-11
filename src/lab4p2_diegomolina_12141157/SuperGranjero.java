@@ -9,6 +9,16 @@ package lab4p2_diegomolina_12141157;
  *
  * @author diego
  */
-public class SuperGranjero {
+public class SuperGranjero extends Aldeanos {
+    private int puntosAtaque;
+
+    public SuperGranjero() {
+        super();
+    }
+
+    public SuperGranjero(String nombre, String apellido, int edad, int vida) {
+        super(nombre, apellido, edad, 1000);
+        this.puntosAtaque = 1000;
+    }
     
 }

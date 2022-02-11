@@ -9,6 +9,30 @@ package lab4p2_diegomolina_12141157;
  *
  * @author diego
  */
-public class Agronomo {
+public class Agronomo extends Aldeanos{
+    private int puntosAtaque;
+
+    public Agronomo() {
+        super();
+    }
+
+    public Agronomo(String nombre, String apellido, int edad, int vida) {
+        super(nombre, apellido, edad, vida);
+        this.puntosAtaque = 100;
+    }
+
+    public int getPuntosAtaque() {
+        return puntosAtaque;
+    }
+
+    public void setPuntosAtaque(int puntosAtaque) {
+        this.puntosAtaque = puntosAtaque;
+    }
+
+    @Override
+    public String toString() {
+        return "Agronomo:"+super.toString() + "puntosAtaque=" + puntosAtaque + '}';
+    }
+    
     
 }
