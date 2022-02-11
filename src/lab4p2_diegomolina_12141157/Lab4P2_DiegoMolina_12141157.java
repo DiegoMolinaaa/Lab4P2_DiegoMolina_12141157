@@ -6,6 +6,7 @@
 package lab4p2_diegomolina_12141157;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -56,6 +57,7 @@ public class Lab4P2_DiegoMolina_12141157 {
                     break;
                 }
                 case 4:{
+                    pelear();
                     break;
                 }
                 case 5:{
@@ -156,5 +158,74 @@ public class Lab4P2_DiegoMolina_12141157 {
             System.out.println(familias.indexOf(ob)+" -->"+ob.toString());
         }
         System.out.println("");
+    }
+    public static void pelear(){
+        ArrayList<Aldeanos> familia1 = new ArrayList();
+        ArrayList<Aldeanos> familia2 = new ArrayList();
+        for (familias object : familias) {
+            if(object.getApellido().equalsIgnoreCase("Montesco")){
+                familia1 = object.getAldeanos();
+                break;
+            }
+        }
+        if((familias.size()-1)>1){
+            System.out.print("Ingrese la familia que peleara: ");
+            lea.nextLine();
+            String apellido = lea.nextLine();
+            
+            boolean entra = false;
+            for (familias object : familias) {
+                if(object.getApellido().equalsIgnoreCase(apellido)){
+                    familia2 = object.getAldeanos();
+                    entra=true;
+                    break;
+                }
+            }
+            if(entra=false){
+                System.out.println("Debe de Ingresar un apellido de familia existente");
+            }
+        }
+        else{
+            for (familias object : familias) {
+                if(object.getApellido().equalsIgnoreCase("Capuleto")){
+                    familia2 = object.getAldeanos();
+                    break;
+                }
+            }
+        }
+        Collections.shuffle(familia1);
+        Collections.shuffle(familia2);
+        while(!(familia1.isEmpty()) || !(familia2.isEmpty())){
+            int ataquefamiliar1 = 0; 
+            int ataquefamiliar2 = 0; 
+            while(familia1.get(0).getVida() > 0 && familia2.get(0).getVida() > 0){
+                ataquefamiliar1 = familia1.get(0).Ataque(familia2.get(0));
+                familia2.get(0).setVida( familia2.get(0).getVida() - ataquefamiliar1 );
+                System.out.println(familia1.get(0).getNombre() + " ha atacado a " + familia2.get(0).getNombre() + " haciendole " + ataquefamiliar1 + " dejandolo con " + familia2.get(0).getVida() + " de vida "  ); 
+                if(familia2.get(0).getVida() <= 0){
+                    System.out.println("HA GANADO " + familia1.get(0).getNombre());
+                    familia2.remove(0);
+                    break;
+                }else{
+                    ataquefamiliar2 = familia2.get(0).Ataque(familia1.get(0));
+                    familia1.get(0).setVida( familia1.get(0).getVida() - ataquefamiliar2);
+                    System.out.println(familia2.get(0).getNombre() + " ha atacado a " + familia1.get(0).getNombre() + " haciendole " + ataquefamiliar2 + " dejandolo con " + familia1.get(0).getVida() + " de vida "  );        
+                    if(familia1.get(0).getVida() <= 0){
+                        System.out.println("HA GANADO " + familia2.get(0).getNombre());
+                        familia1.remove(0);
+                        break;
+                    }
+                }
+            }
+            if(familia2.isEmpty()){
+                System.out.println("Ha Ganado la familia "+familia1.get(0).getApellido());
+                break;
+            }
+            if(familia1.isEmpty()){
+                System.out.println("Ha Ganado la familia "+familia2.get(0).getApellido());
+                break;
+            }
+        }
+        
     }
 }

@@ -61,5 +61,5 @@ public abstract class Aldeanos {
     public String toString() {
         return "Aldeanos{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", vida=" + vida + '}';
     }
-    public abstract void Ataque(Aldeanos atacado);
+    public abstract int Ataque(Aldeanos atacado);
 }

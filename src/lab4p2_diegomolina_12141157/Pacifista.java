@@ -35,8 +35,9 @@ public class Pacifista extends Aldeanos{
     }
 
     @Override
-    public void Ataque(Aldeanos atacado) {
-        
+    public int Ataque(Aldeanos atacado) {
+        System.out.println(discurso);
+        return 0;
     }
     
     

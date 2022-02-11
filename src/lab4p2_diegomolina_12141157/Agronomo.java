@@ -5,11 +5,14 @@
  */
 package lab4p2_diegomolina_12141157;
 
+import java.util.Random;
+
 /**
  *
  * @author diego
  */
 public class Agronomo extends Aldeanos{
+    Random r = new Random();
     private int puntosAtaque;
 
     public Agronomo() {
@@ -35,8 +38,17 @@ public class Agronomo extends Aldeanos{
     }
 
     @Override
-    public void Ataque(Aldeanos atacado) {
-        
+    public int Ataque(Aldeanos atacado) {
+        int prob = 1+r.nextInt(99);
+        if(prob>=1 && prob <=5){
+            System.out.println("Ha Fallado!");
+            return 0;
+        }
+        else{
+            if(atacado instanceof Normal)return (int)Math.round(puntosAtaque*1.10);
+            if(atacado instanceof Pacifista)return (int)Math.round(puntosAtaque*1.05);
+            return puntosAtaque;
+        }
     }
     
     

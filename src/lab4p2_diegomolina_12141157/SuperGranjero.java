@@ -5,11 +5,14 @@
  */
 package lab4p2_diegomolina_12141157;
 
+import java.util.Random;
+
 /**
  *
  * @author diego
  */
 public class SuperGranjero extends Aldeanos {
+    Random r = new Random();
     private int puntosAtaque;
 
     public SuperGranjero() {
@@ -35,8 +38,10 @@ public class SuperGranjero extends Aldeanos {
     }
 
     @Override
-    public void Ataque(Aldeanos atacado) {
-        
+    public int Ataque(Aldeanos atacado) {
+        if(atacado instanceof Herrero)return (int)Math.round(puntosAtaque*1.10);
+        if(atacado instanceof Explosivo)return (int)Math.round(puntosAtaque*1.15);
+        return puntosAtaque;
     }
     
     

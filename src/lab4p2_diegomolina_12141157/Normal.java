@@ -35,8 +35,9 @@ public class Normal extends Aldeanos{
     }
 
     @Override
-    public void Ataque(Aldeanos atacado) {
-        
+    public int Ataque(Aldeanos atacado) {
+        if(atacado instanceof Pacifista)return (int)Math.round(puntosAtaque*1.05);
+        return puntosAtaque;
     }
     
 }
