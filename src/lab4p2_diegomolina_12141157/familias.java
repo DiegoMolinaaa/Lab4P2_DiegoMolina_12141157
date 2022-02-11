@@ -40,7 +40,7 @@ public class familias {
 
     @Override
     public String toString() {
-        return "familias{" + "apellido=" + apellido + ", aldeanos=" + aldeanos + '}';
+        return "Familia: " + apellido + ", aldeanos=" + aldeanos;
     }
     
 }
