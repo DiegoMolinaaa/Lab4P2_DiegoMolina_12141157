@@ -33,6 +33,7 @@ public class Lab4P2_DiegoMolina_12141157 {
         familias.get(2).getAldeanos().add(new Agronomo("Fernando", "Pietro", 29, 200));
         char cent='s';
         while(cent=='s' || cent=='S'){
+            System.out.println("------------------------------------");
             System.out.println("1) Ingresar Familia");
             System.out.println("2) Ingresar Aldeano");
             System.out.println("3) Imprimir Familias");
@@ -40,6 +41,7 @@ public class Lab4P2_DiegoMolina_12141157 {
             System.out.println("5) Salir");
             System.out.print("Ingrese una opcion: ");
             int op = lea.nextInt();
+            System.out.println("------------------------------------");
             switch(op){
                 case 1:{
                     crearFamilia();

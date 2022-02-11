@@ -33,5 +33,10 @@ public class Normal extends Aldeanos{
     public String toString() {
         return "Normal:"+ super.toString() + "puntosAtaque=" + puntosAtaque + '}';
     }
+
+    @Override
+    public void Ataque(Aldeanos atacado) {
+        
+    }
     
 }

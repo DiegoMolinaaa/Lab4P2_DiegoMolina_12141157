@@ -33,6 +33,11 @@ public class Pacifista extends Aldeanos{
     public String toString() {
         return "Pacifista:"+super.toString() + "discurso=" + discurso + '}';
     }
+
+    @Override
+    public void Ataque(Aldeanos atacado) {
+        
+    }
     
     
     

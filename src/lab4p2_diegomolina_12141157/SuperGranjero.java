@@ -20,5 +20,24 @@ public class SuperGranjero extends Aldeanos {
         super(nombre, apellido, edad, 1000);
         this.puntosAtaque = 1000;
     }
+
+    public int getPuntosAtaque() {
+        return puntosAtaque;
+    }
+
+    public void setPuntosAtaque(int puntosAtaque) {
+        this.puntosAtaque = puntosAtaque;
+    }
+
+    @Override
+    public String toString() {
+        return "SuperGranjero: "+super.toString() + "puntosAtaque=" + puntosAtaque;
+    }
+
+    @Override
+    public void Ataque(Aldeanos atacado) {
+        
+    }
+    
     
 }

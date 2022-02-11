@@ -33,6 +33,11 @@ public class Herrero extends Aldeanos {
     public String toString() {
         return "Herrero:"+super.toString() + "puntosAtaque=" + puntosAtaque + '}';
     }
+
+    @Override
+    public void Ataque(Aldeanos atacado) {
+        
+    }
     
     
 }

@@ -33,6 +33,11 @@ public class Agronomo extends Aldeanos{
     public String toString() {
         return "Agronomo:"+super.toString() + "puntosAtaque=" + puntosAtaque + '}';
     }
+
+    @Override
+    public void Ataque(Aldeanos atacado) {
+        
+    }
     
     
 }

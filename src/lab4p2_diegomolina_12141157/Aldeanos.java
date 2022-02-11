@@ -9,7 +9,7 @@ package lab4p2_diegomolina_12141157;
  *
  * @author diego
  */
-public class Aldeanos {
+public abstract class Aldeanos {
     private String nombre;
     private String apellido;
     private int edad;
@@ -61,5 +61,5 @@ public class Aldeanos {
     public String toString() {
         return "Aldeanos{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", vida=" + vida + '}';
     }
-    
+    public abstract void Ataque(Aldeanos atacado);
 }
