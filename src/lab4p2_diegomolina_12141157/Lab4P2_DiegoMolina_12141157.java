@@ -202,46 +202,104 @@ public class Lab4P2_DiegoMolina_12141157 {
                         }    
                     }
                 }
-            }
-            Collections.shuffle(familia1);
-            Collections.shuffle(familia2);
-            while(!(familia1.isEmpty()) || !(familia2.isEmpty())){
-                int ataquefamiliar1 = 0; 
-                int ataquefamiliar2 = 0; 
-                while(familia1.get(0).getVida() > 0 && familia2.get(0).getVida() > 0){
-                    int vida1Og = familia1.get(0).getVida();
-                    int vida2Og = familia2.get(0).getVida();
-                    ataquefamiliar1 = familia1.get(0).Ataque(familia2.get(0));
-                    familia2.get(0).setVida( familia2.get(0).getVida() - ataquefamiliar1 );
-                    System.out.println(familia1.get(0).getNombre() + " ha atacado a " + familia2.get(0).getNombre() + " haciendole " + ataquefamiliar1 + " dejandolo con " + familia2.get(0).getVida() + " de vida "  ); 
-                    if(familia2.get(0).getVida() <= 0){
-                        System.out.println("HA GANADO " + familia1.get(0).getNombre());
-                        familia1.get(0).setVida(vida1Og);
-                        familia2.remove(0);
-                        break;
-                    }else{
-                        ataquefamiliar2 = familia2.get(0).Ataque(familia1.get(0));
-                        familia1.get(0).setVida( familia1.get(0).getVida() - ataquefamiliar2);
-                        System.out.println(familia2.get(0).getNombre() + " ha atacado a " + familia1.get(0).getNombre() + " haciendole " + ataquefamiliar2 + " dejandolo con " + familia1.get(0).getVida() + " de vida "  );        
-                        if(familia1.get(0).getVida() <= 0){
-                            System.out.println("HA GANADO " + familia2.get(0).getNombre());
-                            familia2.get(0).setVida(vida2Og);
-                            familia1.remove(0);
+                Collections.shuffle(familia1);
+                Collections.shuffle(familia2);
+                while(!(familia1.isEmpty()) || !(familia2.isEmpty())){
+                    int ataquefamiliar1 = 0; 
+                    int ataquefamiliar2 = 0; 
+                    while(familia1.get(0).getVida() > 0 && familia2.get(0).getVida() > 0){
+                        int vida1Og = familia1.get(0).getVida();
+                        int vida2Og = familia2.get(0).getVida();
+                        ataquefamiliar1 = familia1.get(0).Ataque(familia2.get(0));
+                        familia2.get(0).setVida( familia2.get(0).getVida() - ataquefamiliar1 );
+                        System.out.println(familia1.get(0).getNombre() + " ha atacado a " + familia2.get(0).getNombre() + " haciendole " + ataquefamiliar1 + " dejandolo con " + familia2.get(0).getVida() + " de vida "  ); 
+                        if(familia2.get(0).getVida() <= 0){
+                            System.out.println("HA GANADO " + familia1.get(0).getNombre());
+                            familia1.get(0).setVida(vida1Og);
+                            familia2.remove(0);
                             break;
+                        }else{
+                            ataquefamiliar2 = familia2.get(0).Ataque(familia1.get(0));
+                            familia1.get(0).setVida( familia1.get(0).getVida() - ataquefamiliar2);
+                            System.out.println(familia2.get(0).getNombre() + " ha atacado a " + familia1.get(0).getNombre() + " haciendole " + ataquefamiliar2 + " dejandolo con " + familia1.get(0).getVida() + " de vida "  );        
+                            if(familia1.get(0).getVida() <= 0){
+                                System.out.println("HA GANADO " + familia2.get(0).getNombre());
+                                familia2.get(0).setVida(vida2Og);
+                                familia1.remove(0);
+                                break;
+                            }
                         }
                     }
+                    if(familia2.isEmpty()){
+                        System.out.println("Ha Ganado la familia "+familia1.get(0).getApellido());
+                        familias.remove(posfam2);
+                        break;
+                    }
+                    if(familia1.isEmpty()){
+                        System.out.println("Ha Ganado la familia "+familia2.get(0).getApellido());
+                        familias.remove(posfam1);
+                        System.out.println("Los Capuletos han sido Victoriosos");
+                        break;
+                    }
+                }    
+            }
+            else {
+                if((familias.size()-1)==1){
+                    for (familias ob : familias) {
+                        if(ob.getApellido().equalsIgnoreCase("Capuleto")){
+                            familia2 = ob.getAldeanos();
+                            posfam2 = familias.indexOf(ob);
+                        }
+                    }
+                    Collections.shuffle(familia1);
+                    Collections.shuffle(familia2);
+                    SuperGranjero romeo = new SuperGranjero();
+                    Normal julieta = new Normal();
+                    for (Aldeanos aldeanos : familia1) {
+                        if(aldeanos.getNombre().equalsIgnoreCase("Romeo")){
+                            romeo = (SuperGranjero)aldeanos;
+                        }
+                    }
+                    for (Aldeanos aldeanos : familia2) {
+                        if(aldeanos.getNombre().equalsIgnoreCase("Julieta")){
+                            julieta = (Normal)aldeanos;
+                            familia2.remove(familia2.indexOf(aldeanos));
+                        }
+                    }
+                    while(!(familia2.isEmpty())){
+                        int ataquefamiliar1 = 0; 
+                        int ataquefamiliar2 = 0; 
+                        while(romeo.getVida() > 0 && familia2.get(0).getVida() > 0){
+                            int vida1Og = romeo.getVida();
+                            int vida2Og = familia2.get(0).getVida();
+                            ataquefamiliar1 = romeo.Ataque(familia2.get(0));
+                            familia2.get(0).setVida( familia2.get(0).getVida() - ataquefamiliar1 );
+                            System.out.println(romeo.getNombre() + " ha atacado a " + familia2.get(0).getNombre() + " haciendole " + ataquefamiliar1 + " dejandolo con " + familia2.get(0).getVida() + " de vida "  ); 
+                            if(familia2.get(0).getVida() <= 0){
+                                System.out.println("HA GANADO " + romeo.getNombre());
+                                romeo.setVida(vida1Og);
+                                familia2.remove(0);
+                                break;
+                            }else{
+                                ataquefamiliar2 = familia2.get(0).Ataque(romeo);
+                                romeo.setVida( romeo.getVida() - ataquefamiliar2);
+                                System.out.println(familia2.get(0).getNombre() + " ha atacado a " + romeo.getNombre() + " haciendole " + ataquefamiliar2 + " dejandolo con " + romeo.getVida() + " de vida "  );        
+                                if(romeo.getVida() <= 0){
+                                    System.out.println("HA GANADO " + familia2.get(0).getNombre());
+                                    familia2.get(0).setVida(vida2Og);
+                                    System.out.println("Los Capuletos Han Vencido a Romeo");
+                                    break;
+                                }
+                            }
+                            if(familia2.isEmpty()){
+                                System.out.println("Ha Ganado Romeo");
+                                System.out.println("Romeo y Julieta seran Felices para Siempre");
+                                break;
+                            }
+                        }    
+                    }
                 }
-                if(familia2.isEmpty()){
-                    System.out.println("Ha Ganado la familia "+familia1.get(0).getApellido());
-                    familias.remove(posfam2);
-                    break;
-                }
-                if(familia1.isEmpty()){
-                    System.out.println("Ha Ganado la familia "+familia2.get(0).getApellido());
-                    familias.remove(posfam1);
-                    System.out.println("Los Capuletos han sido Victoriosos");
-                    break;
-                }
+                    
             }
         }
         else{
