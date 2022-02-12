@@ -230,6 +230,46 @@ public class Lab4P2_DiegoMolina_12141157 {
                         ataquefamiliar1 = familia1.get(0).Ataque(familia2.get(0));
                         familia2.get(0).setVida( familia2.get(0).getVida() - ataquefamiliar1 );
                         System.out.println(familia1.get(0).getNombre() + " ha atacado a " + familia2.get(0).getNombre() + " haciendole " + ataquefamiliar1 + " dejandolo con " + familia2.get(0).getVida() + " de vida "  ); 
+                        /*if(familia1.get(0) instanceof Explosivo){
+                            for (Aldeanos ob : familia2) {
+                                if(familia2.indexOf(ob)==0){
+                                    continue;
+                                }
+                                System.out.println("Masacre");
+                                ataquefamiliar1 = familia1.get(0).Ataque(familia2.get(familia2.indexOf(ob)));
+                                familia2.get(familia2.indexOf(ob)).setVida( familia2.get(familia2.indexOf(ob)).getVida() - ataquefamiliar1 );
+                                System.out.println(familia1.get(0).getNombre() + " ha atacado a " + familia2.get(familia2.indexOf(ob)).getNombre() + " haciendole " + ataquefamiliar1 + " dejandolo con " + familia2.get(familia2.indexOf(ob)).getVida() + " de vida "  );
+                                if(familia2.get(familia2.indexOf(ob)).getVida() <= 0){
+                                    System.out.println(familia1.get(0).getNombre()+ " ha eliminado a "+familia2.get(familia2.indexOf(ob)).getNombre());
+                                    familia1.get(0).setVida(vida1Og);
+                                    familia2.remove(familia2.indexOf(ob));
+                                    if(familia2.isEmpty()){
+                                        System.out.println("La familia 2 ha sido eliminada");
+                                        familias.remove(posfam2);
+                                        break;
+                                    }
+                                }
+                            }
+                            for (Aldeanos ob : familia1) {
+                                if(familia1.indexOf(ob)==0){
+                                    continue;
+                                }
+                                System.out.println("Masacre");
+                                ataquefamiliar1 = familia1.get(0).Ataque(familia1.get(familia1.indexOf(ob)));
+                                familia1.get(familia1.indexOf(ob)).setVida( familia1.get(familia1.indexOf(ob)).getVida() - ataquefamiliar1 );
+                                System.out.println(familia1.get(0).getNombre() + " ha atacado a " + familia1.get(familia1.indexOf(ob)).getNombre() + " haciendole " + ataquefamiliar1 + " dejandolo con " + familia1.get(familia1.indexOf(ob)).getVida() + " de vida "  );
+                                if(familia1.get(familia1.indexOf(ob)).getVida() <= 0){
+                                    System.out.println(familia1.get(0).getNombre()+ " ha eliminado a "+familia1.get(familia1.indexOf(ob)).getNombre());
+                                    familia1.get(0).setVida(vida1Og);
+                                    familia1.remove(familia1.indexOf(ob));
+                                    if(familia1.isEmpty()){
+                                        System.out.println("La familia 1 ha sido eliminada");
+                                        familias.remove(posfam1);
+                                        break;
+                                    }
+                                }
+                            }
+                        }*/
                         if(familia2.get(0).getVida() <= 0){
                             System.out.println("HA GANADO " + familia1.get(0).getNombre());
                             familia1.get(0).setVida(vida1Og);
