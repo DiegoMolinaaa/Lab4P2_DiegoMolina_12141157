@@ -178,6 +178,11 @@ public class Lab4P2_DiegoMolina_12141157 {
                 System.out.print("Ingrese la familia que peleara: ");
                 lea.nextLine();
                 String apellido = lea.nextLine();
+                while(apellido.equalsIgnoreCase("Capuleto")){
+                    System.out.println("No puede Ingresar ese apellido");
+                    System.out.print("Ingrese la familia que peleara: ");
+                    apellido = lea.nextLine();
+                }
                 boolean entra = false;
                 for (familias object : familias) {
                     String apellidoOb = object.getApellido();
@@ -205,6 +210,18 @@ public class Lab4P2_DiegoMolina_12141157 {
                 Collections.shuffle(familia1);
                 Collections.shuffle(familia2);
                 while(!(familia1.isEmpty()) || !(familia2.isEmpty())){
+                    boolean vivo = false;
+                    for (Aldeanos aldeanos : familia1) {
+                        if(aldeanos.getNombre().equalsIgnoreCase("Romeo")){
+                            vivo=true;
+                        }
+                        
+                    }
+                    if(vivo==false){
+                        System.out.println("Romeo a Muerto");
+                        System.out.println("Fin del Juego");
+                        break;
+                    }
                     int ataquefamiliar1 = 0; 
                     int ataquefamiliar2 = 0; 
                     while(familia1.get(0).getVida() > 0 && familia2.get(0).getVida() > 0){
@@ -263,13 +280,15 @@ public class Lab4P2_DiegoMolina_12141157 {
                     for (Aldeanos aldeanos : familia2) {
                         if(aldeanos.getNombre().equalsIgnoreCase("Julieta")){
                             julieta = (Normal)aldeanos;
-                            familia2.remove(familia2.indexOf(aldeanos));
                         }
                     }
                     while(!(familia2.isEmpty())){
                         int ataquefamiliar1 = 0; 
                         int ataquefamiliar2 = 0; 
                         while(romeo.getVida() > 0 && familia2.get(0).getVida() > 0){
+                            if(familia2.get(0).getNombre()=="Julieta"){
+                                familia2.remove(0);
+                            }
                             int vida1Og = romeo.getVida();
                             int vida2Og = familia2.get(0).getVida();
                             ataquefamiliar1 = romeo.Ataque(familia2.get(0));
@@ -291,12 +310,12 @@ public class Lab4P2_DiegoMolina_12141157 {
                                     break;
                                 }
                             }
-                            if(familia2.isEmpty()){
-                                System.out.println("Ha Ganado Romeo");
-                                System.out.println("Romeo y Julieta seran Felices para Siempre");
-                                break;
-                            }
-                        }    
+                        }
+                        if(familia2.isEmpty()){
+                            System.out.println("Romeo y Julieta seran Felices para Siempre");
+                            familias.remove(posfam2);
+                            break;
+                        }
                     }
                 }
                     
